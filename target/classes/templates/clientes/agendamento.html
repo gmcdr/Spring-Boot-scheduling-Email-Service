@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <form method="post" action="/agenda" th:object="${agendamento}">
+            <div class="row">
+                <div class="col-md-7">
+                    <input placeholder="Gabriel Reis" type="text" th:field="*{name}">
+                    <input placeholder="20" type="number" th:field="*{age}">
+                    <input placeholder="71 973693432" type="text" th:field="*{phone}">
+                  	<input type="date" th:field="*{data}">
+                </div>
+            </div>
+            
+            <select th:field="*{braidType}">
+                <option th:each="tipo : ${T(com.agendamento.tranca.enums.BraidType).values()}" th:value="${tipo}"
+                    th:text="${tipo}">
+                </option>
+            </select>
+            
+            <select th:field="*{braidSize}">
+                <option th:each="tamanho : ${T(com.agendamento.tranca.enums.BraidSize).values()}" th:value="${tamanho}"
+                    th:text="${tamanho}">
+                </option>
+            </select>
+				<button type="submit">Enviar</button>
+        </form>
+    </div>
+
+</body>
+
+</html>

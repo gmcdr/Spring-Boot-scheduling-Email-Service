@@ -15,5 +15,6 @@ public enum BraidType {
 	private BraidType(String braidType) {
 		this.braidType = braidType;
 	}
+
 	
 }

@@ -13,5 +13,7 @@ public enum BraidSize {
 	private BraidSize(String braidSize) {
 		this.braidSize = braidSize;
 	}
+
+	
 	
 }

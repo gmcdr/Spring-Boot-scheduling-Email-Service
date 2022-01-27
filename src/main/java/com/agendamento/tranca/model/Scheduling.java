@@ -1,12 +1,17 @@
 package com.agendamento.tranca.model;
 
+
 import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import com.agendamento.tranca.enums.BraidSize;
 import com.agendamento.tranca.enums.BraidType;
@@ -15,6 +20,7 @@ import com.agendamento.tranca.enums.BraidType;
 @Entity
 public class Scheduling {
 	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
@@ -24,26 +30,39 @@ public class Scheduling {
 	private Integer age;
 	@Column(name = "Phone")
 	private String phone;
-	@Column(name = "Date")
-	private Date date;
+	@Column(name= "Date")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date data;
 	@Column(name = "BraidType")
+	@Enumerated(EnumType.STRING)
 	private BraidType braidType;
 	@Column(name = "BraidSize")
+	@Enumerated(EnumType.STRING)
 	private BraidSize braidSize;
 	
 	public Scheduling() {
 		
 	}
 
-	public Scheduling(Integer id, String name, Integer age, String phone, Date date, BraidType braidType,
+	public Scheduling(Integer id, String name, Integer age, String phone, Date data, BraidType braidType,
 			BraidSize braidSize) {
 		this.id = id;
 		this.name = name;
 		this.age = age;
 		this.phone = phone;
-		this.date = date;
+		this.data = data;
 		this.braidType = braidType;
 		this.braidSize = braidSize;
+	}
+
+
+	
+	public Date getData() {
+		return data;
+	}
+
+	public void setData(Date data) {
+		this.data = data;
 	}
 
 	public Integer getId() {
@@ -78,14 +97,6 @@ public class Scheduling {
 		this.phone = phone;
 	}
 
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
-	}
-
 	public BraidType getBraidType() {
 		return braidType;
 	}
@@ -102,10 +113,5 @@ public class Scheduling {
 		this.braidSize = braidSize;
 	}
 
-	@Override
-	public String toString() {
-		return "Scheduling [id=" + id + ", name=" + name + ", age=" + age + ", phone=" + phone + ", date=" + date
-				+ ", braidType=" + braidType + ", braidSize=" + braidSize + "]";
-	}
 	
 }
