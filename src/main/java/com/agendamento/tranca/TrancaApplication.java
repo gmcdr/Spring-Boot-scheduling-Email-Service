@@ -11,7 +11,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableJpaRepositories(basePackages="com.agendamento.tranca.repository")
 @EnableAutoConfiguration
 @EntityScan(basePackages="com.agendamento.tranca.model")
-@ComponentScan(basePackages="com.agendamento.tranca.controllers")
+@ComponentScan({"com.agendamento.tranca.controllers", "com.agendamento.tranca.services"})
 @SpringBootApplication
 public class TrancaApplication {
 

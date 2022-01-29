@@ -33,30 +33,52 @@ public class Scheduling {
 	@Column(name= "Date")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date data;
+	@Column(name = "Hour")
+	private String hour;
 	@Column(name = "BraidType")
 	@Enumerated(EnumType.STRING)
 	private BraidType braidType;
 	@Column(name = "BraidSize")
 	@Enumerated(EnumType.STRING)
 	private BraidSize braidSize;
+	@Column(name = "Email")
+	private String email;
 	
 	public Scheduling() {
 		
 	}
 
-	public Scheduling(Integer id, String name, Integer age, String phone, Date data, BraidType braidType,
-			BraidSize braidSize) {
+
+	public Scheduling(Integer id, String name, Integer age, String phone, Date data, String hour, BraidType braidType,
+			BraidSize braidSize, String email) {
 		this.id = id;
 		this.name = name;
 		this.age = age;
 		this.phone = phone;
 		this.data = data;
+		this.hour = hour;
 		this.braidType = braidType;
 		this.braidSize = braidSize;
+		this.email = email;
 	}
 
 
-	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getHour() {
+		return hour;
+	}
+
+	public void setHour(String hour) {
+		this.hour = hour;
+	}
+
 	public Date getData() {
 		return data;
 	}
@@ -111,6 +133,13 @@ public class Scheduling {
 
 	public void setBraidSize(BraidSize braidSize) {
 		this.braidSize = braidSize;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Cliente Agendado | Nome: " + name + ", Idade: " + age + ", Telefone: " + phone + ", Data: " + data
+				+ ", Hora: " + hour + ", Tipo de trança: " + braidType + ", Tamanho da trança: " + braidSize + ", Email: " + email + "";
 	}
 
 	

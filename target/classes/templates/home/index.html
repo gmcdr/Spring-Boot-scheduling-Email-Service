@@ -4,11 +4,48 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Hello World</h1>
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/style.css">
     
-    <a th:href="@{agendar}">Cadastro</a>
+    <title>Atiliê Isabela Carvalho</title>
+</head>
+
+<body>
+
+    <section style="background-image: url('img/bg2.jpg');">
+        <header>
+            <a href="#" class="logo"><img src="img/logo1.png" alt=""></a>
+            <div class="toggleMenu" onclick="toggleMenu();"></div>
+            <ul class="navbar">
+                <li><a href="#">Home</a></li>
+                <li><a th:href="@{agendar}">Agendar</a></li>
+                <li><a href="#">Endereço</a></li>
+                <li><a href="#">Sobre</a></li>
+            </ul>
+        </header>
+        <div class="content">
+            <div class="contentBx">
+                <h2>
+                    Isabela <span class="color">Trancista</span>
+                </h2>
+                <p>
+                    Conheça o <span class="color">melhor</span> e jamais volte
+                    a se contentar com
+                    o <span class="color">básico</span>.
+                </p>
+                <a class="btn" href="#">Serviços</a>
+                <a class="btn2" href="#">Contato</a>
+            </div>
+        </div>
+        <ul class="icons">
+            <li><a href="#"><i class='bx bxl-facebook-circle'></i></a></li>
+            <li><a href="https://www.instagram.com/atelie_isabelacarvalho/?hl=pt-br"><i class='bx bxl-instagram-alt'></i></a></li>
+            <li><a href="#"><i class='bx bxl-twitter'></i></a></li>
+        </ul>
+    </section>
 </body>
+
+<script src="assets/js/script.js"></script>
+<script src="https://unpkg.com/boxicons@2.0.9/dist/boxicons.js"></script>
+
 </html>
