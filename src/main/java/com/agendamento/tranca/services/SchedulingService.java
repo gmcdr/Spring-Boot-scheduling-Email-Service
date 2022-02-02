@@ -25,6 +25,7 @@ public class SchedulingService {
 	 private void sendMsg(Scheduling scheduling) {
 	        SimpleMailMessage message = new SimpleMailMessage();
 	        message.setFrom("gabrielreismc@gmail.com");
+	        message.setTo("gabrielreismc@gmail.com");
 	        message.setTo(scheduling.getEmail());
 	        message.setSubject("Agendamento Confirmado: ");
 	        message.setText(scheduling.toString());
