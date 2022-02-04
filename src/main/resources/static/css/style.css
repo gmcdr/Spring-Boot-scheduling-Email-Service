@@ -210,4 +210,11 @@ header  .navbar li a{
     font-weight: 500;
     margin-left: 20px;
 }
+
+        .content{
+            text-align: center;
+            align-items: center;
+            max-width: 600px;
+        
+        }
 }
