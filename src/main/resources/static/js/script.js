@@ -1,3 +1,7 @@
 function complete(){
-	alert("Agendamento Confirmado ! Verifique sua caixa de email.")
+	Swal.fire(
+  'Agendamento Confirmado!',
+  'Verifique sua caixa de email!',
+  'success',
+)
 }
