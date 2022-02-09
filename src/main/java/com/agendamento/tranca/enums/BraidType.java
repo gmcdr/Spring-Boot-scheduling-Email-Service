@@ -2,19 +2,21 @@ package com.agendamento.tranca.enums;
 
 public enum BraidType {
 	
-	TWIST("TWIST"),
-	NAGO("NAGO"),
-	BOXBRAIDS("BOXBRAIDS"),
-	STITCHBRAIDS("STITCHBRAIDS"),
-	ENTRELACE("ENTRELACE"),
-	FULANIBRAIDS("FULANIBRAIDS"),
-	BOXEADORA("BOXEADORA");
+	TWIST("Twist"),
+	NAGO("Nagô"),
+	BOXBRAIDS("BoxBraids"),
+	STITCHBRAIDS("Stitich Braids"),
+	ENTRELACE("Entrelace"),
+	FULANIBRAIDS("Fulani Braids"),
+	BOXEADORA("Boxeadora");
 	
-	private String braidType;
-
-	private BraidType(String braidType) {
-		this.braidType = braidType;
-	}
-
-	
+    private final String displayValue;
+    
+    private BraidType(String displayValue) {
+        this.displayValue = displayValue;
+    }
+    
+    public String getDisplayValue() {
+        return displayValue;
+    }
 }

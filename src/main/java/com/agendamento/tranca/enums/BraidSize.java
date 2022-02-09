@@ -2,18 +2,19 @@ package com.agendamento.tranca.enums;
 
 public enum BraidSize {
 	
-	CHANNEL("CHANNEL"),
-	BUSTO("BUSTO"),
-	CINTURA("CINTUR"),
-	QUADRIL("QUADRI"),
-	OUTROS("OUTROS");
+	CHANNEL("Channel"),
+	BUSTO("Busto"),
+	CINTURA("Cintura"),
+	QUADRIL("Quadril"),
+	OUTROS("Outros");
 	
-	private String braidSize;
-
-	private BraidSize(String braidSize) {
-		this.braidSize = braidSize;
-	}
-
-	
-	
+    private final String displayValue;
+    
+    private BraidSize(String displayValue) {
+        this.displayValue = displayValue;
+    }
+    
+    public String getDisplayValue() {
+        return displayValue;
+    }
 }

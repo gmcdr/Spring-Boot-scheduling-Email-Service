@@ -58,7 +58,7 @@
                 <label for="inputState" class="form-label">Tipo de Trança</label>
                 <select th:field="*{braidType}" id="inputState" class="form-select">
                     <option th:each="tipo : ${T(com.agendamento.tranca.enums.BraidType).values()}" th:value="${tipo}"
-                    th:text="${tipo}"></option>
+                    th:text="${tipo.displayValue}"></option>
                 </select>
             </div>
             <br>
@@ -67,7 +67,7 @@
                 <label for="inputState" class="form-label">Tamanho</label>
                 <select th:field="*{braidSize}" id="inputState" class="form-select">
                     <option th:each="tamanho : ${T(com.agendamento.tranca.enums.BraidSize).values()}" th:value="${tamanho}"
-                    th:text="${tamanho}"></option>
+                    th:text="${tamanho.displayValue}"></option>
                 </select>
             </div>
             <br>
