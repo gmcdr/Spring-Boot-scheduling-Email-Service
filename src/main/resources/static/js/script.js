@@ -9,7 +9,7 @@ function errorMsg(){
 
 function successMsg(){
 				Swal.fire({
-  				icon: 'error',
+  				icon: 'success',
   				title: 'Agendamento Confirmado!',
  			    text: 'Verifique sua caixa de email!',
  			    confirmButtonColor: '#BB4E26'
