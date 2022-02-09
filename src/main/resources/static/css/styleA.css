@@ -1,0 +1,40 @@
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+    * {
+        font-family: 'Poppins', sans-serif;
+
+    }
+
+    #bt{
+        background-color: #bb4e26;
+        color: #fff;
+    }
+    
+    .title{
+    text-align: center;
+    font-size: 25px;
+    color: #BB4E26;
+    text-transform: uppercase;
+    letter-spacing: 3px;}
+    
+    #bt{
+    	padding-left:155px;
+    	padding-right:155px;
+    	border-radius: 10px;
+    }
+
+@media (max-width: 600px) {
+	.title{
+    	text-align: center;
+    	font-size: 20px;
+    	color: #BB4E26;
+    	text-transform: uppercase;
+    	letter-spacing: 3px;
+    }
+    
+        #bt{
+    	padding-left:135px;
+    	padding-right:135px;
+    	border-radius: 10px;
+    }
+}

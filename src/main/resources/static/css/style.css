@@ -134,6 +134,8 @@ header  .navbar li a{
    
 }
 
+
+
 @media (max-width: 600px) {
         header{
             padding: 15px 40px;
