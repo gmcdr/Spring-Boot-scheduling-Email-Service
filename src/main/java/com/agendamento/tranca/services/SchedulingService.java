@@ -24,10 +24,10 @@ public class SchedulingService {
 	
 	 private void sendMsg(Scheduling scheduling) {
 	        SimpleMailMessage message = new SimpleMailMessage();
-	        message.setFrom("gabrielreismc@gmail.com");
-	        message.setTo("gabrielreismc@gmail.com");
+	        message.setFrom("isabelacarvalhotrancista@gmail.com");
+	        message.setTo("isabelacarvalhotrancista@gmail.com");
 	        message.setTo(scheduling.getEmail());
-	        message.setSubject("Agendamento Confirmado: ");
+	        message.setSubject("Preferência de Agendamento: ");
 	        message.setText(scheduling.toString());
 	        emailSender.send(message);
 	    }

@@ -102,7 +102,7 @@ header  .navbar li a{
     text-transform: uppercase;
     letter-spacing: 1px;
     border-radius: 30px;
-    font-weight: 500;
+    font-weight: 400;
     margin-left: 20px;
 }
 
@@ -178,24 +178,6 @@ header  .navbar li a{
             font-size: 24px;
             margin: 10px 0;
         }
-        .toggleMenu{
-            position: relative;
-            width: 30px;
-            height: 30px;
-            background: url(img/menu1.png);
-            background-position: center;
-            background-size: 30px;
-            background-repeat: no-repeat;
-            cursor: pointer;
-            z-index: 11;
-        }
-
-        .toggleMenu.active{
-            background: url(assets/img/x-regular-24.png);
-            background-position: center;
-            background-size: 35px;
-            background-repeat: no-repeat;
-        }
         
         .btn2{
     display: inline-block;
@@ -209,7 +191,7 @@ header  .navbar li a{
     text-transform: uppercase;
     letter-spacing: 1px;
     border-radius: 30px;
-    font-weight: 500;
+    font-weight: 400;
     margin-left: 2px;
 }
 

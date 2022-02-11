@@ -16,7 +16,10 @@
 
 
 <body>
-
+<center>
+<img id="logoForm" alt="" src="img/logo1.png">
+</center>
+<br>
 <form method="post" action="agendar" th:object="${agendamento}" name="formulario">
     <div class="container">
         <p class="title">Dados do Cliente</p>
@@ -32,7 +35,7 @@
 
             <br>
             <div class="col-md-1">
-                <input placeholder="Idade" type="number" class="form-control" id="formGroupExampleInput2"  th:field="*{age}" maxlength="3">
+                <input placeholder="Idade" type="text" class="form-control" id="formGroupExampleInput2"  th:field="*{age}" maxlength="3">
             </div>
             <br>
 
@@ -42,6 +45,7 @@
             <br>
 			
 			<p class="title">Dados do Agendamento</p>
+			<div id="emailHelp" class="form-text">Serão confimardos agendamentos apenas de Segunda à Sábado das 8:00 às 17:00</div>
             <div class="col-md-2">
                 <label for="formGroupExampleInput2" class="form-label">Data</label>
                 <input name="data" type="date" class="form-control" id="data" th:field="*{data}" required>

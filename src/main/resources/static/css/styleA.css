@@ -22,6 +22,10 @@
     	padding-right:155px;
     	border-radius: 10px;
     }
+    
+    #logoForm{
+    	width: 10%;
+    }
 
 @media (max-width: 600px) {
 	.title{
@@ -36,5 +40,9 @@
     	padding-left:135px;
     	padding-right:135px;
     	border-radius: 10px;
+    }
+    
+        #logoForm{
+    	width: 15%;
     }
 }
