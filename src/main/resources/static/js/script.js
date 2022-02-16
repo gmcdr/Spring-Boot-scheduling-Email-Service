@@ -17,30 +17,11 @@ function errorData(){
 })
 }
 
-function verificarData(){
-	var dataForm = document.getElementById("data").value;
-	
-	var array_form = dataForm.split("/");
-	
-	var dia_form = parseInt(array_form[0]);
-	var mes_form = parseInt(array_form[1]);
-	var ano_form = parseInt(array_form[2]);
-	
-	
-	var ano_atual = new Date().getFullYear;
-	var mes_atual = new Date().getMonth;
-	var dia_atual = new Date().getDate;
 
-    if (dia_form < dia_atual || mes_form < mes_atual || ano_form <ano_atual) {
-        errorData()
-    }
-
-}
 
 
 $(document).ready(function(){
 	$("#celular").mask("(00) 00000-0000")
-	$("#data").mask("00/00/0000")
 })
 
 function toggleMenu() {

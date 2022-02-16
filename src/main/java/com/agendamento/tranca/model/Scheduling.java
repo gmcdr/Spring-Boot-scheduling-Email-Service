@@ -1,6 +1,8 @@
 package com.agendamento.tranca.model;
 
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -8,6 +10,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import com.agendamento.tranca.enums.BraidSize;
 import com.agendamento.tranca.enums.BraidType;
@@ -27,7 +31,8 @@ public class Scheduling {
 	@Column(name = "Phone")
 	private String phone;
 	@Column(name= "Date")
-	private String data;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date data;
 	@Column(name = "Hour")
 	private String hour;
 	@Column(name = "BraidType")
@@ -57,13 +62,11 @@ public class Scheduling {
 		this.hour = hour;
 	}
 
-	
-
-	public String getData() {
+	public Date getData() {
 		return data;
 	}
 
-	public void setData(String data) {
+	public void setData(Date data) {
 		this.data = data;
 	}
 
