@@ -1,8 +1,6 @@
 package com.agendamento.tranca.model;
 
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -11,15 +9,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 import com.agendamento.tranca.enums.BraidSize;
 import com.agendamento.tranca.enums.BraidType;
 
 
 @Entity
 public class Scheduling {
-	
 	
 
 	@Id
@@ -28,12 +23,11 @@ public class Scheduling {
 	@Column(name = "Name")
 	private String name;
 	@Column(name = "Age")
-	private String age;
+	private Integer age;
 	@Column(name = "Phone")
 	private String phone;
 	@Column(name= "Date")
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date data;
+	private String data;
 	@Column(name = "Hour")
 	private String hour;
 	@Column(name = "BraidType")
@@ -45,23 +39,6 @@ public class Scheduling {
 	@Column(name = "Email")
 	private String email;
 	
-	public Scheduling() {
-		
-	}
-
-
-	public Scheduling(Integer id, String name, String age, String phone, Date data, String hour, BraidType braidType,
-			BraidSize braidSize, String email) {
-		this.id = id;
-		this.name = name;
-		this.age = age;
-		this.phone = phone;
-		this.data = data;
-		this.hour = hour;
-		this.braidType = braidType;
-		this.braidSize = braidSize;
-		this.email = email;
-	}
 
 
 	public String getEmail() {
@@ -80,11 +57,13 @@ public class Scheduling {
 		this.hour = hour;
 	}
 
-	public Date getData() {
+	
+
+	public String getData() {
 		return data;
 	}
 
-	public void setData(Date data) {
+	public void setData(String data) {
 		this.data = data;
 	}
 
@@ -104,17 +83,13 @@ public class Scheduling {
 		this.name = name;
 	}
 
-
-
-	public String getAge() {
+	public Integer getAge() {
 		return age;
 	}
 
-
-	public void setAge(String age) {
+	public void setAge(Integer age) {
 		this.age = age;
 	}
-
 
 	public String getPhone() {
 		return phone;
@@ -143,7 +118,7 @@ public class Scheduling {
 
 	@Override
 	public String toString() {
-		return "Dados do Agendamento | Nome: " + name + ", Idade: " + age + ", Telefone: " + phone + ", Data: " + data
+		return "Cliente Agendado | Nome: " + name + ", Idade: " + age + ", Telefone: " + phone + ", Data: " + data
 				+ ", Hora: " + hour + ", Tipo de trança: " + braidType + ", Tamanho da trança: " + braidSize + ", Email: " + email + "";
 	}
 

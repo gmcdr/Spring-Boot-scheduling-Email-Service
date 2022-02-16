@@ -40,15 +40,15 @@
             <br>
 
             <div class="col-md-2">
-                <input placeholder="Telefone" type="text" class="form-control" id="formGroupExampleInput2"  th:field="*{phone}" maxlength="12" required>
+                <input placeholder="Telefone" type="text" class="form-control" id="celular" name="celular"  th:field="*{phone}" maxlength="14" required>
             </div>
             <br>
 			
 			<p class="title">Dados do Agendamento</p>
-			<div id="emailHelp" class="form-text">Serão confimardos agendamentos apenas de Segunda à Sábado das 8:00 às 17:00</div>
+			<div id="emailHelp" class="form-text">Serão confirmardos agendamentos apenas de Segunda à Sábado das 8:00 às 17:00</div>
             <div class="col-md-2">
                 <label for="formGroupExampleInput2" class="form-label">Data</label>
-                <input name="data" type="date" class="form-control" id="data" th:field="*{data}" required>
+                <input name="data" type="text" class="form-control" id="data" th:field="*{data}" onblur="verificarData()" required>
             </div>
             <br>
 
@@ -85,6 +85,8 @@
 </form>
 
 </body>
+	<script src="js/jquery-3.6.0.min.js"></script>
+	<script src="js/jquery.mask.min.js"></script>
 	<script src="sweetalert2.all.min.js"></script>
 	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<script src="js/script.js"></script>
