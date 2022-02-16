@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.agendamento.tranca.model.Scheduling;
-import com.agendamento.tranca.repository.SchedulingRepository;
 import com.agendamento.tranca.services.SchedulingService;
 
 @Controller
@@ -15,9 +14,6 @@ public class SchedulingController {
 
 	@Autowired
 	private SchedulingService service;
-	
-	@Autowired
-	private SchedulingRepository repository;
 	
 	
 	@GetMapping("/agendar")
@@ -30,21 +26,12 @@ public class SchedulingController {
 	}
 	
 	@PostMapping("/agendar")
-	public ModelAndView Enviar(Scheduling scheduling) throws Exception {
+	public ModelAndView Enviar(Scheduling scheduling) {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("redirect:/clientes/agendados");
+		mv.setViewName("redirect:/agendar");
 		service.createScheduling(scheduling);
 		return mv;
+		
 	}
-	
-	
-	@GetMapping("/agendados")
-	public ModelAndView  lsAgendados() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("clientes/agendados");
-		mv.addObject("listaAgendados", repository.findAll());
-		return mv;
-	}
-	
 	
 }

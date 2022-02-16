@@ -1,3 +1,9 @@
+function toggleMenu() {
+    const toggleMenu = document.querySelector('.toggleMenu');
+    const navbar = document.querySelector('.navbar');
+    toggleMenu.classList.toggle('active')
+    navbar.classList.toggle('active')
+}
 
 function errorMsg(){
 				Swal.fire({
@@ -7,31 +13,6 @@ function errorMsg(){
  			    confirmButtonColor: '#BB4E26'
 })
 }
-
-function errorData(){
-				Swal.fire({
-  				icon: 'error',
-  				title: 'Oops...',
- 			    text: 'Coloque uma data valida!!',
- 			    confirmButtonColor: '#BB4E26'
-})
-}
-
-
-
-
-$(document).ready(function(){
-	$("#celular").mask("(00) 00000-0000")
-})
-
-function toggleMenu() {
-    const toggleMenu = document.querySelector('.toggleMenu');
-    const navbar = document.querySelector('.navbar');
-    toggleMenu.classList.toggle('active')
-    navbar.classList.toggle('active')
-}
-
-
 
 function successMsg(){
 				Swal.fire({

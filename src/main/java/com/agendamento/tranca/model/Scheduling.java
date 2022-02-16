@@ -20,6 +20,7 @@ import com.agendamento.tranca.enums.BraidType;
 @Entity
 public class Scheduling {
 	
+	
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -27,7 +28,7 @@ public class Scheduling {
 	@Column(name = "Name")
 	private String name;
 	@Column(name = "Age")
-	private Integer age;
+	private String age;
 	@Column(name = "Phone")
 	private String phone;
 	@Column(name= "Date")
@@ -44,6 +45,23 @@ public class Scheduling {
 	@Column(name = "Email")
 	private String email;
 	
+	public Scheduling() {
+		
+	}
+
+
+	public Scheduling(Integer id, String name, String age, String phone, Date data, String hour, BraidType braidType,
+			BraidSize braidSize, String email) {
+		this.id = id;
+		this.name = name;
+		this.age = age;
+		this.phone = phone;
+		this.data = data;
+		this.hour = hour;
+		this.braidType = braidType;
+		this.braidSize = braidSize;
+		this.email = email;
+	}
 
 
 	public String getEmail() {
@@ -86,13 +104,17 @@ public class Scheduling {
 		this.name = name;
 	}
 
-	public Integer getAge() {
+
+
+	public String getAge() {
 		return age;
 	}
 
-	public void setAge(Integer age) {
+
+	public void setAge(String age) {
 		this.age = age;
 	}
+
 
 	public String getPhone() {
 		return phone;
@@ -121,7 +143,7 @@ public class Scheduling {
 
 	@Override
 	public String toString() {
-		return "Cliente Agendado | Nome: " + name + ", Idade: " + age + ", Telefone: " + phone + ", Data: " + data
+		return "Dados do Agendamento | Nome: " + name + ", Idade: " + age + ", Telefone: " + phone + ", Data: " + data
 				+ ", Hora: " + hour + ", Tipo de trança: " + braidType + ", Tamanho da trança: " + braidSize + ", Email: " + email + "";
 	}
 
