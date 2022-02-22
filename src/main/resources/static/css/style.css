@@ -149,14 +149,14 @@ header  .navbar li a:hover{
 }
 
 .color{
-    color: #264367;
+    color: #BB4E26;
 }
 
 .icons{
     position: absolute;
     bottom: 30px;
     display: flex;
-    color: #264367;
+    color: #BB4E26;
 }
 
 
@@ -172,7 +172,7 @@ header  .navbar li a:hover{
     display: inline-block;
     margin-right: 20px;
     font-size: 25px;
-    color: #264367;
+    color: #BB4E26;
    
 }
 
