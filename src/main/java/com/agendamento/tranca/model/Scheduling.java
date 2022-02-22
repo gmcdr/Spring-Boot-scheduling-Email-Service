@@ -1,8 +1,6 @@
 package com.agendamento.tranca.model;
 
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -10,8 +8,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
-import org.springframework.format.annotation.DateTimeFormat;
+import javax.validation.constraints.Size;
 
 import com.agendamento.tranca.enums.BraidSize;
 import com.agendamento.tranca.enums.BraidType;
@@ -20,37 +17,45 @@ import com.agendamento.tranca.enums.BraidType;
 @Entity
 public class Scheduling {
 	
-	
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
-	@Column(name = "Name")
+	@Column(name = "Name", nullable = false)
+	@Size(min = 3, max = 50)
 	private String name;
-	@Column(name = "Age")
+	@Column(name = "Age", nullable = false)
+	@Size(min = 1, max = 3)
 	private String age;
-	@Column(name = "Phone")
+	@Column(name = "Phone", nullable = false)
+	@Size(max = 15)
 	private String phone;
-	@Column(name= "Date")
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date data;
-	@Column(name = "Hour")
+	@Column(name= "Date", nullable = false)
+	@Size(max = 12)
+	/*@DateTimeFormat(pattern = "yyyy-MM-dd")*/
+	private String data;
+	@Column(name = "Hour", nullable = false)
+	@Size(max = 10)
 	private String hour;
-	@Column(name = "BraidType")
+	@Column(name = "BraidType", nullable = false)
 	@Enumerated(EnumType.STRING)
 	private BraidType braidType;
-	@Column(name = "BraidSize")
+	@Column(name = "BraidSize", nullable = false)
 	@Enumerated(EnumType.STRING)
 	private BraidSize braidSize;
-	@Column(name = "Email")
+	@Column(name = "Email", nullable = false)
+	@Size(min = 8, max = 50)
 	private String email;
+	
+	
+	@Column(name = "Mes")
+	private String mes;
 	
 	public Scheduling() {
 		
 	}
 
 
-	public Scheduling(Integer id, String name, String age, String phone, Date data, String hour, BraidType braidType,
+	public Scheduling(Integer id, String name, String age, String phone, String data, String hour, BraidType braidType,
 			BraidSize braidSize, String email) {
 		this.id = id;
 		this.name = name;
@@ -61,6 +66,17 @@ public class Scheduling {
 		this.braidType = braidType;
 		this.braidSize = braidSize;
 		this.email = email;
+	}
+
+
+	public String getMes() {
+		return mes;
+	}
+
+
+	public void setMes(String mes) {
+		this.mes =mes;
+
 	}
 
 
@@ -80,13 +96,16 @@ public class Scheduling {
 		this.hour = hour;
 	}
 
-	public Date getData() {
+
+	public String getData() {
 		return data;
 	}
 
-	public void setData(Date data) {
+
+	public void setData(String data) {
 		this.data = data;
 	}
+
 
 	public Integer getId() {
 		return id;

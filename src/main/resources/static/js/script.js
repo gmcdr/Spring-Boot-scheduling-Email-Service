@@ -1,3 +1,21 @@
+const sr = ScrollReveal({
+    origin: 'top',
+    distance: '30px',
+    duration: 2000,
+    reset: true
+});
+
+sr.reveal(`.content`, {
+    interval: 200
+})
+
+
+$(document).ready(function () {
+    $("#telefone").mask("(00) 00000-0000")
+})
+
+
+
 function toggleMenu() {
     const toggleMenu = document.querySelector('.toggleMenu');
     const navbar = document.querySelector('.navbar');
