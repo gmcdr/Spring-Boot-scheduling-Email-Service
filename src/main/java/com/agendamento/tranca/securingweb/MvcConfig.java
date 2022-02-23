@@ -1,3 +1,5 @@
+
+/*
 package com.agendamento.tranca.securingweb;
 
 
@@ -24,3 +26,5 @@ public class MvcConfig extends WebSecurityConfigurerAdapter {
 
 	
 }
+
+*/

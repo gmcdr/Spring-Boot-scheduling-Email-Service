@@ -51,6 +51,8 @@ public class SchedulingController {
 		
 	}
 	
+	
+	/*
 	@Autowired
 	private SchedulingRepository repository;
 	
@@ -67,8 +69,7 @@ public class SchedulingController {
 		repository.deleteById(id);
 		return "admin/allScheduling";
 	}
-}
-	
 
-	
+*/
+}
 
