@@ -19,7 +19,7 @@ public class SchedulingService {
 	
 	public Scheduling createScheduling(Scheduling scheduling) {
 		sendMsg(scheduling);
-		return 	repository.save(scheduling);
+		return repository.save(scheduling);
 	}
 	
 	 private void sendMsg(Scheduling scheduling) {
@@ -31,9 +31,5 @@ public class SchedulingService {
 	        message.setText(scheduling.toString());
 	        emailSender.send(message);
 	    }
-	 
-	 public Scheduling findByDate(Scheduling scheduling) {
-		 return repository.findByData(scheduling.getData());
-	 }
 
 }

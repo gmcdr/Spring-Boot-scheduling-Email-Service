@@ -1,5 +1,5 @@
 *{
-   	font-family: 'Poppins', sans-serif;
+   font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -61,21 +61,6 @@ header  .navbar li a{
     text-decoration: none;
 }
 
-header  .navbar li a:hover{
-    display: inline-block;
-    background-color: #BB4E26;
-    color: #fff;
-    margin-right: 40px;
-    letter-spacing: 2px;
-    text-decoration: none;
-    padding-left: 10px;
-    padding-top:2px;
-    padding-bottom: 2px;
-    padding-right: 10px;
-    border-radius: 15px;
-    cursor: pointer;	
-}
-
 .content{
     max-width: 600px;
 
@@ -107,21 +92,6 @@ header  .navbar li a:hover{
     font-weight: 500;
 }
 
-.content .contentBx .btn:hover{
-    display: inline-block;
-    padding: 10px 30px;
-    color: #fff;
-    text-decoration: none;
-    border-color: #BB4E26;
-    border-style: solid;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border-radius: 30px;
-    font-weight: 400;
-}
-
-
-
 .btn2{
     display: inline-block;
     padding: 10px 30px;
@@ -134,18 +104,6 @@ header  .navbar li a:hover{
     border-radius: 30px;
     font-weight: 400;
     margin-left: 20px;
-}
-
-.btn2:hover{
-    display: inline-block;
-    padding: 10px 30px;
-    color: #fff;
-    text-decoration: none;
-    background-color: #BB4E26;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border-radius: 30px;
-    font-weight: 400;
 }
 
 .color{
@@ -173,15 +131,6 @@ header  .navbar li a:hover{
     margin-right: 20px;
     font-size: 25px;
     color: #BB4E26;
-   
-}
-
-.icons li a:hover{
-    position: relative;
-    display: inline-block;
-    margin-right: 20px;
-    font-size: 25px;
-    color: #fff;
    
 }
 
