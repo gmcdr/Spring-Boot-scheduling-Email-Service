@@ -1,12 +1,15 @@
 package com.agendamento.tranca.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,7 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.agendamento.tranca.model.Scheduling;
 import com.agendamento.tranca.repository.SchedulingRepository;
-import com.agendamento.tranca.services.SchedulingService;
+import com.agendamento.tranca.services.SchedulingService;import lombok.experimental.PackagePrivate;
 
 @Controller
 public class SchedulingController {
@@ -65,9 +68,22 @@ public class SchedulingController {
 	}
 	
 	@GetMapping("/excluir/{id}")
-	public String excluirAgendamento(@PathVariable("id") Integer id) {
+	public String excluirAgendamento(@PathVariable("id") Long id) {
 		repository.deleteById(id);
 		return "redirect:/admin";
+	}
+	
+	
+	@GetMapping("/{id}")
+	public String formAtualizar(@PathVariable Long id,  Model model) {
+		model.addAttribute("agendamento", service.findAgendamento(id));
+		return "admin/alterar_agendamento";
+	}
+	
+	@PostMapping("/update")
+	public String atualizarAgendamento( Scheduling scheduling) {
+			service.atualizarAgendamento(scheduling);
+			return "redirect:/admin";
 	}
 	
 	

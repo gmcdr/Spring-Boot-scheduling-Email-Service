@@ -19,7 +19,7 @@ public class Scheduling {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id;
+	private Long id;
 	@Column(name = "Name", nullable = false)
 	@Size(min = 3, max = 50)
 	private String name;
@@ -55,11 +55,9 @@ public class Scheduling {
 	}
 
 
-
-	public Scheduling(Integer id, @Size(min = 3, max = 50) String name, @Size(min = 1, max = 3) String age,
+	public Scheduling(Long id, @Size(min = 3, max = 50) String name, @Size(min = 1, max = 3) String age,
 			@Size(max = 15) String phone, @Size(max = 12) String data, @Size(max = 10) String hour, BraidType braidType,
 			BraidSize braidSize, @Size(min = 8, max = 50) String email, String mes) {
-		super();
 		this.id = id;
 		this.name = name;
 		this.age = age;
@@ -71,6 +69,9 @@ public class Scheduling {
 		this.email = email;
 		this.mes = mes;
 	}
+
+
+
 
 
 	public String getMes() {
@@ -111,12 +112,12 @@ public class Scheduling {
 	}
 
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

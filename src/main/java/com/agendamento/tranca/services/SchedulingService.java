@@ -28,7 +28,7 @@ public class SchedulingService {
 	        message.setFrom("isabelacarvalhotrancista@gmail.com");
 	        message.setTo("isabelacarvalhotrancista@gmail.com");
 	        message.setTo(scheduling.getEmail());
-	        message.setSubject("Prefencia de Agedamento! ");
+	        message.setSubject("Preferência de Agedamento: ");
 	        message.setText(scheduling.toString());
 	        emailSender.send(message);
 	    }
@@ -37,6 +37,14 @@ public class SchedulingService {
 	 
 	 public Scheduling findByDate(Scheduling scheduling) {
 		 return repository.findByData(scheduling.getData());
+	 }
+	 
+	 public Scheduling atualizarAgendamento(Scheduling scheduling) {
+		 return repository.save(scheduling);
+	 }
+	 
+	 public Scheduling findAgendamento(Long id) {
+		 return repository.getById(id);
 	 }
 	 
 

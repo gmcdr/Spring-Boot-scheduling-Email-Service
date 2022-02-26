@@ -9,12 +9,15 @@ import org.springframework.stereotype.Repository;
 import com.agendamento.tranca.model.Scheduling;
 
 @Repository
-public interface SchedulingRepository extends JpaRepository<Scheduling, Integer> {
+public interface SchedulingRepository extends JpaRepository<Scheduling, Long> {
 
 	@Query("SELECT i  FROM  Scheduling i WHERE i.data = :data")
 	public Scheduling findByData(String data);
 	
 	
 	public List<Scheduling> findByNameContainingIgnoreCase(String name);
+
+
+	public Scheduling getById(Long id);
 	
 }
