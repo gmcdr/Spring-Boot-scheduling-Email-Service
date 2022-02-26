@@ -22,18 +22,22 @@ public class SchedulingService {
 		return 	repository.save(scheduling);
 	}
 	
+	
 	 private void sendMsg(Scheduling scheduling) {
 	        SimpleMailMessage message = new SimpleMailMessage();
 	        message.setFrom("isabelacarvalhotrancista@gmail.com");
 	        message.setTo("isabelacarvalhotrancista@gmail.com");
 	        message.setTo(scheduling.getEmail());
-	        message.setSubject("Preferência de Agendamento: ");
+	        message.setSubject("Prefencia de Agedamento! ");
 	        message.setText(scheduling.toString());
 	        emailSender.send(message);
 	    }
+	 	 
+
 	 
 	 public Scheduling findByDate(Scheduling scheduling) {
 		 return repository.findByData(scheduling.getData());
 	 }
+	 
 
 }

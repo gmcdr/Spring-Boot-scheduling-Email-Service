@@ -12,14 +12,14 @@
     <title>Agendamento</title>
 </head>
 
-<body style="background-image: url(img/bg2.webp);
+<body style="background-image: url(img/bg4-_1_.webp);
     background-size: cover;
     background-position: center;height: 100vh;
     width: 100vw; background-repeat: no-repeat;">
 	<center>
-	<section >
+	<section class="container_form">
     <form method="post" action="agendar" th:object="${agendamento}" name="formulario">
-        <div class="container_form">
+        <div >
             <br>
             <center>
                 <img id="logoForm" alt="" src="img/logo1.png">
@@ -53,10 +53,11 @@
 
                     <p class="title">Dados do Agendamento</p>
                     <br>
-                    <div id="emailHelp" class="form-text">Serão confimardos agendamentos apenas de Segunda à Sábado das
+                    <div id="infoA" class="form-text">Serão confimardos agendamentos apenas de Segunda à Sábado das
                         8:00 às 17:00</div>
                     <div class="col-md-3">
-                        <label for="formGroupExampleInput2" class="form-label">Data</label>
+
+                        <label id="colorL" for="formGroupExampleInput2" class="form-label">Data</label>
                         <input name="data" type="date" class="form-control" id="data" th:field="*{data}" required>
                         <br>
                         <div class="alert alert-danger" role="alert" th:if="${msg}"> <strong th:text="${msg}"></strong>
@@ -65,13 +66,14 @@
 
 
                     <div class="col-md-2">
-                        <label for="formGroupExampleInput2" class="form-label">Hora</label>
+
+                        <label id="colorL" for="formGroupExampleInput2" class="form-label">Hora</label>
                         <input name="hora" type="time" class="form-control" id="hora" th:field="*{hour}" required>
                     </div>
                     <br>
 
                     <div class="col-md-4">
-                        <label for="inputState" class="form-label">Tipo de Trança</label>
+                        <label id="colorL" for="inputState" class="form-label">Tipo de Trança</label>
                         <select th:field="*{braidType}" id="tipo" class="form-select">
                             <option th:each="tipo : ${T(com.agendamento.tranca.enums.BraidType).values()}"
                                 th:value="${tipo}" th:text="${tipo.displayValue}"></option>
@@ -80,7 +82,7 @@
                     <br>
 
                     <div class="col-md-4">
-                        <label for="inputState" class="form-label">Tamanho</label>
+                        <label id="colorL" for="inputState" class="form-label">Tamanho</label>
                         <select th:field="*{braidSize}" id="tamanho" class="form-select">
                             <option th:each="tamanho : ${T(com.agendamento.tranca.enums.BraidSize).values()}"
                                 th:value="${tamanho}" th:text="${tamanho.displayValue}"></option>
@@ -96,8 +98,10 @@
 </section>
  </center>
 </body>
+
 <script src="js/jquery-3.6.0.min.js"></script>
 <script src="js/jquery.mask.min.js"></script>
+<script src="js/script.js"></script>
 <script src="sweetalert2.all.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://unpkg.com/boxicons@2.0.9/dist/boxicons.js"></script>

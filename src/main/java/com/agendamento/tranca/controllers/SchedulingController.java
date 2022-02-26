@@ -1,5 +1,7 @@
 package com.agendamento.tranca.controllers;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -19,9 +22,6 @@ public class SchedulingController {
 
 	@Autowired
 	private SchedulingService service;
-	
-
-	
 	
 	@GetMapping("/agendar")
 	public ModelAndView Agendar(Scheduling scheduling) {
@@ -52,14 +52,14 @@ public class SchedulingController {
 	}
 	
 	
-	/*
 	@Autowired
 	private SchedulingRepository repository;
 	
-	@GetMapping(value ="/admin")
+	@GetMapping(value="/admin")
 	public ModelAndView admin() {
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("listaAgendados", repository.findAll());
+		mv.addObject("cliente",  repository.findAll());
+		mv.addObject("clienteP",  new Scheduling());
 		mv.setViewName("admin/allScheduling");
 		return mv;
 	}
@@ -67,9 +67,26 @@ public class SchedulingController {
 	@GetMapping("/excluir/{id}")
 	public String excluirAgendamento(@PathVariable("id") Integer id) {
 		repository.deleteById(id);
-		return "admin/allScheduling";
+		return "redirect:/admin";
 	}
+	
+	
+	@PostMapping(value="/admin")
+	public ModelAndView pesquisar(@RequestParam(required = false) String name){
+		ModelAndView mv = new ModelAndView();
+		List<Scheduling> listaAgendamentos;
+		if(name == null || name.trim().isEmpty()) {
+			listaAgendamentos = repository.findAll();
+		}else {
+			listaAgendamentos = repository.findByNameContainingIgnoreCase(name);
+		}
+		mv.addObject("ListaDeClientes", listaAgendamentos);
+		mv.setViewName("admin/pesquisa");
+		return mv;
+	}
+	
 
-*/
+
+
 }
 

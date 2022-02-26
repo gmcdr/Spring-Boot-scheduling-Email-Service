@@ -55,8 +55,11 @@ public class Scheduling {
 	}
 
 
-	public Scheduling(Integer id, String name, String age, String phone, String data, String hour, BraidType braidType,
-			BraidSize braidSize, String email) {
+
+	public Scheduling(Integer id, @Size(min = 3, max = 50) String name, @Size(min = 1, max = 3) String age,
+			@Size(max = 15) String phone, @Size(max = 12) String data, @Size(max = 10) String hour, BraidType braidType,
+			BraidSize braidSize, @Size(min = 8, max = 50) String email, String mes) {
+		super();
 		this.id = id;
 		this.name = name;
 		this.age = age;
@@ -66,6 +69,7 @@ public class Scheduling {
 		this.braidType = braidType;
 		this.braidSize = braidSize;
 		this.email = email;
+		this.mes = mes;
 	}
 
 
@@ -111,9 +115,11 @@ public class Scheduling {
 		return id;
 	}
 
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 
 	public String getName() {
 		return name;

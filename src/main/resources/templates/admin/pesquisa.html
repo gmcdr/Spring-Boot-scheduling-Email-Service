@@ -43,14 +43,10 @@
                         </ul>
                     </li>
                 </ul>
-                <form method="post" action="admin" th:object="${clienteP}" class="d-flex">
-                    <input th:field="*{name}" class="form-control me-2" type="text"   placeholder="Pesquisar Cliente" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Pesquisar</button>
-                </form>
+
             </div>
         </div>
     </nav>
-
 <table class="table">
   <thead>
     <tr>
@@ -65,7 +61,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr scope="row" th:each="clientes : ${cliente}">
+    <tr scope="row" th:each="clientes : ${ListaDeClientes}">
       
       <td th:text="${clientes.name}"></td>
       <td th:text="${clientes.age}"></td>
@@ -79,6 +75,8 @@
       <td>
       <a class="btn btn-danger" th:href="@{excluir/{id}(id=${clientes.id})}">Excluir</a>
       </td>
+      
+      
     </tr>
 
   </tbody>

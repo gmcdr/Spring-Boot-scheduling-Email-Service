@@ -1,3 +1,8 @@
+
+$(document).ready(function () {
+    $("#telefone").mask("(00) 00000-0000")
+})
+
 const sr = ScrollReveal({
     origin: 'top',
     distance: '30px',
@@ -7,11 +12,6 @@ const sr = ScrollReveal({
 
 sr.reveal(`.content`, {
     interval: 200
-})
-
-
-$(document).ready(function () {
-    $("#telefone").mask("(00) 00000-0000")
 })
 
 

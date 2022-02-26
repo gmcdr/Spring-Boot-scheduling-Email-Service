@@ -4,7 +4,7 @@ public enum BraidType {
 	
 	TWIST("Twist"),
 	NAGO("Nagô"),
-	BOXBRAIDS("BoxBraids"),
+	BOXBRAIDS("Box Braids"),
 	STITCHBRAIDS("Stitich Braids"),
 	ENTRELACE("Entrelace"),
 	FULANIBRAIDS("Fulani Braids"),
