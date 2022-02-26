@@ -2,32 +2,33 @@
 
     * {
         font-family: 'Poppins', sans-serif;
-        margin: 0;
-    	padding: 0;
-    	box-sizing: border-box;
 
+    }
+
+    #bt{
+        background-color: #bb4e26;
+        color: #fff;
     }
     
     .title{
     text-align: center;
+<<<<<<< HEAD
     font-size: 20px;
     color: #fff;
+=======
+    font-size: 25px;
+    color: #BB4E26;
+>>>>>>> 9e6afe93c57db1bc665925c862f4717a829fcdce
     text-transform: uppercase;
     letter-spacing: 3px;}
-  
     
     #bt{
-        background-color: #bb4e26;
-        color: #fff;
-    	margin-top:20px;
     	padding-left:155px;
     	padding-right:155px;
-    	border-radius: 15px;
-    	text-transform: uppercase;
-    	letter-spacing: 2px;
-  
+    	border-radius: 10px;
     }
     
+<<<<<<< HEAD
         #bt:hover{
         background-color: #fff;
         color: #bb4e26;
@@ -74,9 +75,12 @@
     
     
     
+=======
+>>>>>>> 9e6afe93c57db1bc665925c862f4717a829fcdce
     #logoForm{
-    	width: 8%;
+    	width: 10%;
     }
+<<<<<<< HEAD
     
     .container_form{
     text-align: center;
@@ -102,6 +106,8 @@
 #infoA{
 	color: #fff;
 }
+=======
+>>>>>>> 9e6afe93c57db1bc665925c862f4717a829fcdce
 
 @media (max-width: 600px) {
 	.title{
@@ -113,16 +119,15 @@
     }
     
         #bt{
-        text-transform: uppercase;
-    	padding-left:110px;
-    	padding-right:110px;
-    	border-radius: 15px;
-    	letter-spacing: 2px;
+    	padding-left:135px;
+    	padding-right:135px;
+    	border-radius: 10px;
     }
     
         #logoForm{
     	width: 15%;
     }
+<<<<<<< HEAD
 	
 	
     .container_form{
@@ -251,3 +256,6 @@
 
 }
 
+=======
+}
+>>>>>>> 9e6afe93c57db1bc665925c862f4717a829fcdce

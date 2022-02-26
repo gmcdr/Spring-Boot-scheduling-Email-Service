@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 $(document).ready(function () {
     $("#telefone").mask("(00) 00000-0000")
@@ -16,6 +17,8 @@ sr.reveal(`.content`, {
 
 
 
+=======
+>>>>>>> 9e6afe93c57db1bc665925c862f4717a829fcdce
 function toggleMenu() {
     const toggleMenu = document.querySelector('.toggleMenu');
     const navbar = document.querySelector('.navbar');

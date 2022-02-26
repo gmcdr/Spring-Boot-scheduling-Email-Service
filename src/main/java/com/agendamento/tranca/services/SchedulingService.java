@@ -19,7 +19,7 @@ public class SchedulingService {
 	
 	public Scheduling createScheduling(Scheduling scheduling) {
 		sendMsg(scheduling);
-		return 	repository.save(scheduling);
+		return repository.save(scheduling);
 	}
 	
 	
@@ -32,6 +32,7 @@ public class SchedulingService {
 	        message.setText(scheduling.toString());
 	        emailSender.send(message);
 	    }
+<<<<<<< HEAD
 	 	 
 
 	 
@@ -47,5 +48,7 @@ public class SchedulingService {
 		 return repository.getById(id);
 	 }
 	 
+=======
+>>>>>>> 9e6afe93c57db1bc665925c862f4717a829fcdce
 
 }

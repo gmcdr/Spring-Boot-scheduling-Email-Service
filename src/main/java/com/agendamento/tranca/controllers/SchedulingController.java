@@ -1,24 +1,33 @@
 package com.agendamento.tranca.controllers;
 
+<<<<<<< HEAD
 import java.util.List;
 import java.util.Optional;
 
 import javax.validation.Valid;
 
+=======
+>>>>>>> 9e6afe93c57db1bc665925c862f4717a829fcdce
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+<<<<<<< HEAD
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+=======
+>>>>>>> 9e6afe93c57db1bc665925c862f4717a829fcdce
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.agendamento.tranca.model.Scheduling;
+<<<<<<< HEAD
 import com.agendamento.tranca.repository.SchedulingRepository;
 import com.agendamento.tranca.services.SchedulingService;import lombok.experimental.PackagePrivate;
+=======
+import com.agendamento.tranca.services.SchedulingService;
+>>>>>>> 9e6afe93c57db1bc665925c862f4717a829fcdce
 
 @Controller
 public class SchedulingController {
@@ -26,6 +35,10 @@ public class SchedulingController {
 	@Autowired
 	private SchedulingService service;
 	
+<<<<<<< HEAD
+=======
+	
+>>>>>>> 9e6afe93c57db1bc665925c862f4717a829fcdce
 	@GetMapping("/agendar")
 	public ModelAndView Agendar(Scheduling scheduling) {
 		ModelAndView mv = new ModelAndView();
@@ -35,25 +48,16 @@ public class SchedulingController {
 		
 	}
 	
-	@PostMapping(value="/agendar")
-	public ModelAndView Enviar(@Valid Scheduling scheduling,  RedirectAttributes attributes ) throws Exception {
+	@PostMapping("/agendar")
+	public ModelAndView Enviar(Scheduling scheduling) {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("redirect:/agendar");
-		if (service.findByDate(scheduling) != null) {
-			//mv.addObject("msg", "Data cadastrada !");
-			attributes.addFlashAttribute("msg", "Data já cadastrada! ");
-			return mv;
-		}else {
-			String[] textoSeparado = scheduling.getData().split("-");
-			
-			scheduling.setMes(textoSeparado[1]);
-			
-			service.createScheduling(scheduling);
-			return mv;
-		}
+		service.createScheduling(scheduling);
+		return mv;
 		
 	}
 	
+<<<<<<< HEAD
 	
 	@Autowired
 	private SchedulingRepository repository;
@@ -104,5 +108,6 @@ public class SchedulingController {
 
 
 
+=======
+>>>>>>> 9e6afe93c57db1bc665925c862f4717a829fcdce
 }
-

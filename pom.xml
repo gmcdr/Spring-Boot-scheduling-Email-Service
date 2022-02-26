@@ -35,9 +35,7 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		
-		
 
-		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -67,22 +65,21 @@
 			<scope>test</scope>
 		</dependency>
 		
-		<dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-validation</artifactId>
-        </dependency>
 		
 		<dependency>
 				<groupId>org.postgresql</groupId>
 				<artifactId>postgresql</artifactId>
 		</dependency>
 		
+<<<<<<< HEAD
 
 		<dependency>
  <groupId>org.springframework.boot</groupId>
  <artifactId>spring-boot-starter-security</artifactId>
 </dependency>
 		
+=======
+>>>>>>> 9e6afe93c57db1bc665925c862f4717a829fcdce
 		<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-mail</artifactId>
