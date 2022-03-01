@@ -17,38 +17,54 @@ public class SchedulingService {
 	@Autowired
 	private JavaMailSender emailSender;
 	
-	public Scheduling createScheduling(Scheduling scheduling) {
-		sendMsg(scheduling);
-		return repository.save(scheduling);
-	}
-	
-	
 	 private void sendMsg(Scheduling scheduling) {
 	        SimpleMailMessage message = new SimpleMailMessage();
 	        message.setFrom("isabelacarvalhotrancista@gmail.com");
 	        message.setTo("isabelacarvalhotrancista@gmail.com");
 	        message.setTo(scheduling.getEmail());
-	        message.setSubject("Preferência de Agedamento: ");
+	        message.setSubject("Preferência de Agedamento! ");
 	        message.setText(scheduling.toString());
 	        emailSender.send(message);
+	  }
+	 
+	 private void sendMsgEditar(Scheduling scheduling) {
+	        SimpleMailMessage message = new SimpleMailMessage();
+	        message.setFrom("isabelacarvalhotrancista@gmail.com");
+	        message.setTo("isabelacarvalhotrancista@gmail.com");
+	        message.setTo(scheduling.getEmail());
+	        message.setSubject("Preferência de Agendamento Editado!! ");
+	        message.setText(scheduling.toStringEditado());
+	        emailSender.send(message);
 	    }
-<<<<<<< HEAD
+	 
+	 public void sendMsgConfirmar(Scheduling scheduling) {
+	        SimpleMailMessage message = new SimpleMailMessage();
+	        message.setFrom("isabelacarvalhotrancista@gmail.com");
+	        message.setTo("isabelacarvalhotrancista@gmail.com");
+	        message.setTo(scheduling.getEmail());
+	        message.setSubject("Agendamento Confirmado!! ");
+	        message.setText(scheduling.confirmado());
+	        emailSender.send(message);
+	    }
 	 	 
-
+	public Scheduling createScheduling(Scheduling scheduling) {
+			sendMsg(scheduling);
+			return 	repository.save(scheduling);
+	}
 	 
 	 public Scheduling findByDate(Scheduling scheduling) {
 		 return repository.findByData(scheduling.getData());
 	 }
 	 
-	 public Scheduling atualizarAgendamento(Scheduling scheduling) {
-		 return repository.save(scheduling);
+	 public Scheduling findByCodigo(Long id) {
+		 return repository.findByCodigo(id);
 	 }
 	 
-	 public Scheduling findAgendamento(Long id) {
-		 return repository.getById(id);
-	 }
-	 
-=======
->>>>>>> 9e6afe93c57db1bc665925c862f4717a829fcdce
+		public Scheduling save(Scheduling scheduling) {
+			sendMsgEditar(scheduling);
+			return 	repository.save(scheduling);
+	}
+		
+	
 
 }

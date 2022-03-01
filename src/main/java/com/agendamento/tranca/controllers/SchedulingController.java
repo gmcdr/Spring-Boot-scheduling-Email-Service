@@ -1,33 +1,22 @@
 package com.agendamento.tranca.controllers;
 
-<<<<<<< HEAD
 import java.util.List;
-import java.util.Optional;
 
 import javax.validation.Valid;
 
-=======
->>>>>>> 9e6afe93c57db1bc665925c862f4717a829fcdce
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-<<<<<<< HEAD
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-=======
->>>>>>> 9e6afe93c57db1bc665925c862f4717a829fcdce
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.agendamento.tranca.model.Scheduling;
-<<<<<<< HEAD
 import com.agendamento.tranca.repository.SchedulingRepository;
-import com.agendamento.tranca.services.SchedulingService;import lombok.experimental.PackagePrivate;
-=======
 import com.agendamento.tranca.services.SchedulingService;
->>>>>>> 9e6afe93c57db1bc665925c862f4717a829fcdce
 
 @Controller
 public class SchedulingController {
@@ -35,10 +24,6 @@ public class SchedulingController {
 	@Autowired
 	private SchedulingService service;
 	
-<<<<<<< HEAD
-=======
-	
->>>>>>> 9e6afe93c57db1bc665925c862f4717a829fcdce
 	@GetMapping("/agendar")
 	public ModelAndView Agendar(Scheduling scheduling) {
 		ModelAndView mv = new ModelAndView();
@@ -48,16 +33,25 @@ public class SchedulingController {
 		
 	}
 	
-	@PostMapping("/agendar")
-	public ModelAndView Enviar(Scheduling scheduling) {
+	@PostMapping(value="/agendar")
+	public ModelAndView Enviar(@Valid Scheduling scheduling,  RedirectAttributes attributes ) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("redirect:/agendar");
-		service.createScheduling(scheduling);
-		return mv;
+		if (service.findByDate(scheduling) != null) {
+			//mv.addObject("msg", "Data cadastrada !");
+			attributes.addFlashAttribute("msg", "Data já cadastrada! ");
+			return mv;
+		}else {
+			String[] textoSeparado = scheduling.getData().split("-");
+			
+			scheduling.setMes(textoSeparado[1]);
+			
+			service.createScheduling(scheduling);
+			return mv;
+		}
 		
 	}
 	
-<<<<<<< HEAD
 	
 	@Autowired
 	private SchedulingRepository repository;
@@ -71,24 +65,34 @@ public class SchedulingController {
 		return mv;
 	}
 	
-	@GetMapping("/excluir/{id}")
-	public String excluirAgendamento(@PathVariable("id") Long id) {
-		repository.deleteById(id);
+	@GetMapping("/excluir/{codigo}")
+	public String excluirAgendamento(@PathVariable("codigo") Long codigo) {
+		repository.deleteById(codigo);
 		return "redirect:/admin";
 	}
 	
-	
-	@GetMapping("/{id}")
-	public String formAtualizar(@PathVariable Long id,  Model model) {
-		model.addAttribute("agendamento", service.findAgendamento(id));
-		return "admin/alterar_agendamento";
+	@GetMapping("/confirmar/{codigo}")
+	public String excluirConfirmar(@PathVariable("codigo") Long codigo) {
+		Scheduling agendamento = service.findByCodigo(codigo);
+		service.sendMsgConfirmar(agendamento);
+		repository.deleteById(codigo);
+		return "redirect:/admin";
 	}
 	
-	@PostMapping("/update")
-	public String atualizarAgendamento( Scheduling scheduling) {
-			service.atualizarAgendamento(scheduling);
-			return "redirect:/admin";
-	}
+	@GetMapping("/update/{codigo}")
+    public String updateAgendamentoForm(@PathVariable("codigo")Long codigo, Model model) {
+        Scheduling agendamento = service.findByCodigo(codigo);
+        model.addAttribute("agendamento", agendamento);
+        return "admin/alterar_agendamento";
+    }
+	
+
+    @PostMapping("/update/{codigo}")
+    public String updateAgendamento(Scheduling scheduling) {
+            service.save(scheduling);
+            return "redirect:/admin";
+        }
+	
 	
 	
 	@PostMapping(value="/admin")
@@ -105,9 +109,5 @@ public class SchedulingController {
 		return mv;
 	}
 	
-
-
-
-=======
->>>>>>> 9e6afe93c57db1bc665925c862f4717a829fcdce
 }
+

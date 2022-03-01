@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 $(document).ready(function () {
     $("#telefone").mask("(00) 00000-0000")
@@ -11,14 +10,12 @@ const sr = ScrollReveal({
     reset: true
 });
 
-sr.reveal(`.content`, {
+sr.reveal(`.contentBx`,{
     interval: 200
 })
 
 
 
-=======
->>>>>>> 9e6afe93c57db1bc665925c862f4717a829fcdce
 function toggleMenu() {
     const toggleMenu = document.querySelector('.toggleMenu');
     const navbar = document.querySelector('.navbar');
@@ -38,7 +35,7 @@ function errorMsg(){
 function successMsg(){
 				Swal.fire({
   				icon: 'success',
-  				title: 'Agendamento Confirmado!',
+  				title: 'Preferência Enviada!',
  			    text: 'Verifique sua caixa de email!',
  			    confirmButtonColor: '#BB4E26'
 })
