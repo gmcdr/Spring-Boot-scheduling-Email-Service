@@ -12,7 +12,7 @@
     <title>Agendamento</title>
 </head>
 
-<body style="background-image: url(img/beauty-portrait-of-afro-woman-with-ethnic-makeup-_1_.webp);
+<body style="background-image: url(img/bg3.webp);
     background-size: cover;
     background-position: center;height: 100vh;
     width: 100vw; background-repeat: no-repeat;  ">
@@ -58,7 +58,6 @@
 
                         <label id="colorL" for="formGroupExampleInput2" class="form-label">Data</label>
                         <input name="data" type="date" class="form-control" id="data" th:field="*{data}" required>
-                        <br>
                         <div class="alert alert-danger" role="alert" th:if="${msg}"> <strong th:text="${msg}"></strong>
                         </div>
                     </div>
@@ -68,7 +67,6 @@
                         <label id="colorL" for="formGroupExampleInput2" class="form-label">Hora</label>
                         <input name="hora" type="time" class="form-control" id="hora" th:field="*{hour}" required>
                     </div>
-                    <br>
 
                     <div class="col-md-4">
                         <label id="colorL" for="inputState" class="form-label">Tipo de Trança</label>
@@ -77,7 +75,6 @@
                                 th:value="${tipo}" th:text="${tipo.displayValue}"></option>
                         </select>
                     </div>
-                    <br>
 
                     <div class="col-md-4">
                         <label id="colorL" for="inputState" class="form-label">Tamanho</label>
