@@ -1,6 +1,5 @@
 package com.agendamento.tranca.model;
 
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -13,10 +12,9 @@ import javax.validation.constraints.Size;
 import com.agendamento.tranca.enums.BraidSize;
 import com.agendamento.tranca.enums.BraidType;
 
-
 @Entity
 public class Scheduling {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long codigo;
@@ -29,9 +27,9 @@ public class Scheduling {
 	@Column(name = "Phone", nullable = false)
 	@Size(max = 15)
 	private String phone;
-	@Column(name= "Date", nullable = false)
+	@Column(name = "Date", nullable = false)
 	@Size(max = 12)
-	/*@DateTimeFormat(pattern = "yyyy-MM-dd")*/
+	/* @DateTimeFormat(pattern = "yyyy-MM-dd") */
 	private String data;
 	@Column(name = "Hour", nullable = false)
 	@Size(max = 10)
@@ -45,15 +43,13 @@ public class Scheduling {
 	@Column(name = "Email", nullable = false)
 	@Size(min = 8, max = 50)
 	private String email;
-	
-	
+
 	@Column(name = "Mes")
 	private String mes;
-	
-	public Scheduling() {
-		
-	}
 
+	public Scheduling() {
+
+	}
 
 	public Scheduling(Long codigo, @Size(min = 3, max = 50) String name, @Size(min = 1, max = 3) String age,
 			@Size(max = 15) String phone, @Size(max = 12) String data, @Size(max = 10) String hour, BraidType braidType,
@@ -70,17 +66,14 @@ public class Scheduling {
 		this.mes = mes;
 	}
 
-
 	public String getMes() {
 		return mes;
 	}
 
-
 	public void setMes(String mes) {
-		this.mes =mes;
+		this.mes = mes;
 
 	}
-
 
 	public String getEmail() {
 		return email;
@@ -98,26 +91,21 @@ public class Scheduling {
 		this.hour = hour;
 	}
 
-
 	public String getData() {
 		return data;
 	}
-
 
 	public void setData(String data) {
 		this.data = data;
 	}
 
-
 	public Long getCodigo() {
 		return codigo;
 	}
 
-
 	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
-
 
 	public String getName() {
 		return name;
@@ -127,17 +115,13 @@ public class Scheduling {
 		this.name = name;
 	}
 
-
-
 	public String getAge() {
 		return age;
 	}
 
-
 	public void setAge(String age) {
 		this.age = age;
 	}
-
 
 	public String getPhone() {
 		return phone;
@@ -163,20 +147,22 @@ public class Scheduling {
 		this.braidSize = braidSize;
 	}
 
-
 	@Override
 	public String toString() {
 		return "Dados do Agendamento || Nome: " + name + ", Idade: " + age + ", Telefone: " + phone + ", Data: " + data
-				+ ", Hora: " + hour + ", Tipo de trança: " + braidType + ", Tamanho da trança: " + braidSize + ", Email: " + email + "||";
+				+ ", Hora: " + hour + ", Tipo de trança: " + braidType + ", Tamanho da trança: " + braidSize
+				+ ", Email: " + email + "||";
 	}
-	
+
 	public String toStringEditado() {
-		return "Dados de agendamento editado :  || Nome: " + name + ", Idade: " + age + ", Telefone: " + phone + ", Data: " + data
-				+ ", Hora: " + hour + ", Tipo de trança: " + braidType + ", Tamanho da trança: " + braidSize + ", Email: " + email + " ||";
+		return "Dados de agendamento editado :  || Nome: " + name + ", Idade: " + age + ", Telefone: " + phone
+				+ ", Data: " + data + ", Hora: " + hour + ", Tipo de trança: " + braidType + ", Tamanho da trança: "
+				+ braidSize + ", Email: " + email + " ||";
 	}
-	
+
 	public String confirmado() {
-			return "Agendamento confirmado pelo Ateliê Isabela Carvalho! Agradecemos a preferência :)"+ " Data: " + data + "  Hora : " + hour ;
+		return "Agendamento confirmado pelo Ateliê Isabela Carvalho! Agradecemos a preferência :)" + " Data: " + data
+				+ "  Hora : " + hour;
 	}
-	
+
 }

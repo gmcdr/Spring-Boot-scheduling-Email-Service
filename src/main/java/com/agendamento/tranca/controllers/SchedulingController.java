@@ -23,54 +23,53 @@ public class SchedulingController {
 
 	@Autowired
 	private SchedulingService service;
-	
+
+	@Autowired
+	private SchedulingRepository repository;
+
 	@GetMapping("/agendar")
 	public ModelAndView Agendar(Scheduling scheduling) {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("clientes/agendamento");
 		mv.addObject("agendamento", new Scheduling());
 		return mv;
-		
+
 	}
-	
-	@PostMapping(value="/agendar")
-	public ModelAndView Enviar(@Valid Scheduling scheduling,  RedirectAttributes attributes ) throws Exception {
+
+	@PostMapping(value = "/agendar")
+	public ModelAndView Enviar(@Valid Scheduling scheduling, RedirectAttributes attributes) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("redirect:/agendar");
 		if (service.findByDate(scheduling) != null) {
-			//mv.addObject("msg", "Data cadastrada !");
+			// mv.addObject("msg", "Data cadastrada !");
 			attributes.addFlashAttribute("msg", "Data já cadastrada! ");
 			return mv;
-		}else {
+		} else {
 			String[] textoSeparado = scheduling.getData().split("-");
-			
+
 			scheduling.setMes(textoSeparado[1]);
-			
+
 			service.createScheduling(scheduling);
 			return mv;
 		}
-		
+
 	}
-	
-	
-	@Autowired
-	private SchedulingRepository repository;
-	
-	@GetMapping(value="/admin")
+
+	@GetMapping(value = "/admin")
 	public ModelAndView admin() {
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("cliente",  repository.findAll());
-		mv.addObject("clienteP",  new Scheduling());
+		mv.addObject("cliente", repository.findAll());
+		mv.addObject("clienteP", new Scheduling());
 		mv.setViewName("admin/allScheduling");
 		return mv;
 	}
-	
+
 	@GetMapping("/excluir/{codigo}")
 	public String excluirAgendamento(@PathVariable("codigo") Long codigo) {
 		repository.deleteById(codigo);
 		return "redirect:/admin";
 	}
-	
+
 	@GetMapping("/confirmar/{codigo}")
 	public String excluirConfirmar(@PathVariable("codigo") Long codigo) {
 		Scheduling agendamento = service.findByCodigo(codigo);
@@ -78,36 +77,32 @@ public class SchedulingController {
 		repository.deleteById(codigo);
 		return "redirect:/admin";
 	}
-	
-	@GetMapping("/update/{codigo}")
-    public String updateAgendamentoForm(@PathVariable("codigo")Long codigo, Model model) {
-        Scheduling agendamento = service.findByCodigo(codigo);
-        model.addAttribute("agendamento", agendamento);
-        return "admin/alterar_agendamento";
-    }
-	
 
-    @PostMapping("/update/{codigo}")
-    public String updateAgendamento(Scheduling scheduling) {
-            service.save(scheduling);
-            return "redirect:/admin";
-        }
-	
-	
-	
-	@PostMapping(value="/admin")
-	public ModelAndView pesquisar(@RequestParam(required = false) String name){
+	@GetMapping("/update/{codigo}")
+	public String updateAgendamentoForm(@PathVariable("codigo") Long codigo, Model model) {
+		Scheduling agendamento = service.findByCodigo(codigo);
+		model.addAttribute("agendamento", agendamento);
+		return "admin/alterar_agendamento";
+	}
+
+	@PostMapping("/update/{codigo}")
+	public String updateAgendamento(Scheduling scheduling) {
+		service.save(scheduling);
+		return "redirect:/admin";
+	}
+
+	@PostMapping(value = "/admin")
+	public ModelAndView pesquisar(@RequestParam(required = false) String name) {
 		ModelAndView mv = new ModelAndView();
 		List<Scheduling> listaAgendamentos;
-		if(name == null || name.trim().isEmpty()) {
+		if (name == null || name.trim().isEmpty()) {
 			listaAgendamentos = repository.findAll();
-		}else {
+		} else {
 			listaAgendamentos = repository.findByNameContainingIgnoreCase(name);
 		}
 		mv.addObject("ListaDeClientes", listaAgendamentos);
 		mv.setViewName("admin/pesquisa");
 		return mv;
 	}
-	
-}
 
+}
